@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.clover.android.sdk.examples"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- For AppInstallDoneService -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:label">
+
+        <activity
+            android:name=".MerchantTestActivity"
+            android:label="Merchant Test"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.EmployeeTestActivity"
+            android:label="Employee Test"
+            android:taskAffinity="com.clover.sdk.examples.employee"
+            android:windowSoftInputMode="stateUnchanged"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.InventoryTestActivity"
+            android:label="@string/inventory_test"
+            android:taskAffinity="com.clover.sdk.examples.inventory"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.CustomerTestActivity"
+            android:label="@string/customer_test"
+            android:taskAffinity="com.clover.sdk.examples.customer"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.CashEventTestActivity"
+            android:label="@string/cashevent_test"
+            android:taskAffinity="com.clover.sdk.examples.cashevent"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.CashDrawersActivity"
+            android:label="@string/cash_drawers_test"
+            android:theme="@style/Theme.AppCompat.Light"/>
+
+        <activity
+            android:name="com.clover.android.sdk.examples.MainActivity"
+            android:label="Clover SDK Examples"
+            android:taskAffinity="com.clover.sdk.examples.main"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.clover.android.sdk.examples.AppNotificationTestActivity"
+            android:label="@string/app_notification_test"
+            android:taskAffinity="com.clover.sdk.examples.app"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.InventoryListActivity"
+            android:label="@string/inventory_list"
+            android:taskAffinity="com.clover.sdk.examples.inventory.list"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.WebServiceActivity"
+            android:label="@string/title_activity_web_service"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.CreateCustomTenderTestActivity"
+            android:label="@string/create_custom_tender_test"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.CustomTenderHandlerTestActivity"
+            android:label="@string/custom_tender_handler_test"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="clover.intent.action.PAY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.clover.android.sdk.examples.PrinterTestActivity"
+            android:label="@string/printer_test"/>
+        <activity
+            android:name=".PrintJobsTestActivity"
+            android:label="@string/printjob_test"/>
+        <activity
+            android:name="com.clover.android.sdk.examples.AuthenticateEmployeeTestActivity"
+            android:label="@string/authenticate_employee"/>
+
+        <activity
+            android:name="com.clover.android.sdk.examples.BarcodeScannerTestActivity"
+            android:label="@string/title_activity_barcode_scanner_test"/>
+
+        <activity
+            android:name=".OrderPaidActivity"
+            android:label="Order Paid Example"/>
+
+        <activity
+            android:name="com.clover.android.sdk.examples.PrintTaskTestActivity"
+            android:label="@string/print_task_test"/>
+        <activity
+            android:name=".LockScreenTestActivity"
+            android:label="@string/lockscreen_test_activity"/>
+
+        <activity
+            android:name=".ImagePrinterActivity"
+            android:label="@string/print_image_footer" />
+
+        <activity
+            android:name=".CustomItemTestActivity"
+            android:label="@string/custom_item_test_activity"/>
+
+        <receiver android:name=".LockScreenBootCompleteReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name=".PrinterImageProvider"
+            android:authorities="com.clover.receipt_registration_sample"
+            android:exported="true" />
+
+        <activity
+            android:name=".PreUninstallTestActivity"
+            android:label="Pre-uninstall Test"
+            android:launchMode="singleTask" />
+
+        <service android:name=".PreUninstallTestService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.clover.intent.action.ACTION_APP_PRE_UNINSTALL" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".AppAuthTestActivity"
+            android:label="App Authentication Test"
+            android:theme="@android:style/Theme.DeviceDefault.Light" />
+        <activity
+            android:name=".MerchantDevicesV2TestActivity"
+            android:label="@string/merchant_devices_v2_activity_label" />
+
+        <activity
+            android:name=".Platform2DetailsActivity"
+            android:label="@string/platform2_details_name"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <service
+            android:name=".AppInstallDoneService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver android:name=".AppInstallDoneReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.clover.intent.action.APP_INSTALL_DONE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".KeypadTestActivity"
+            android:label="@string/keypad_test" />
+
+        <activity
+            android:name=".SaleRefundTestActivity"
+            android:label="@string/salerefund_test"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+
+        <activity
+            android:name="com.clover.android.sdk.examples.ReceiptRegistrationTestActivity"
+            android:label="@string/receipt_registration_test" />
+
+        <provider
+            android:name="com.clover.android.sdk.examples.ReceiptRegistrationTestProvider"
+            android:authorities="com.clover.android.sdk.examples.receipt"
+            android:exported="true" />
+
+    </application>
+
+</manifest>
